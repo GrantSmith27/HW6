@@ -151,8 +151,12 @@ class PriorityQueue<E, P> {
 
     public Node add(E e, P priority) {
 
-        // YOUR CODE GOES HERE
-        return null;
+        //initialize new node with element and its priority
+        Node newNode = new Node(e, priority, tree.size());
+        tree.add(newNode);
+        //pullUp will re-heap the min-heap and the new node to the correct position
+        pullUp(newNode.idx);
+        return newNode;
     }
 
 
