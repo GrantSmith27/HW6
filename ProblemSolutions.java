@@ -108,12 +108,23 @@ public class ProblemSolutions {
      */
 
     public static ArrayList<String> showDuplicates(ArrayList<String> input) {
-
-        //
-        //  YOUR CODE GOES HERE
-        //
-        return new ArrayList<>();  // Make sure result is sorted in ascending order
-
+        //create HashMap for storing strings and # of instances it appears
+        HashMap<String, Integer> countMap = new HashMap<>();
+        //traverse through ArrayList and count each string's occurrences
+        for (String str : input) {
+            countMap.put(str, countMap.getOrDefault(str, 0) + 1);
+        }
+        //create ArrayList for adding duplicates
+        ArrayList<String> duplicates = new ArrayList<>();
+        //add to duplicates if string's count is greater than one
+        for (String key : countMap.keySet()) {
+            if (countMap.get(key) > 1) {
+                duplicates.add(key);
+            }
+        }
+        //sort duplicates and return list
+        Collections.sort(duplicates);
+        return duplicates;
     }
 
 
