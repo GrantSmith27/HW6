@@ -65,10 +65,28 @@ public class ProblemSolutions {
 
   public static int lastBoulder(int[] boulders) {
 
-      //
-      // ADD YOUR CODE HERE - DO NOT FORGET TO ADD YOUR NAME / SECTION # ABOVE
-      //
-      return -1;
+      //initialize a max-heap to store boulders and prioritizing max weight
+      PriorityQueue<Integer> boulderQueue = new PriorityQueue<>(Collections.reverseOrder());
+      //add boulders to the max-heap
+      for (int boulder : boulders) {
+          boulderQueue.offer(boulder);
+      }
+      //process boulders until 1 or none are left
+      while (boulderQueue.size() > 1) {
+          //retrieve the two largest boulders
+          int first = boulderQueue.poll();
+          int second = boulderQueue.poll();
+          //smash the boulders
+          if (first != second) {
+              //if the boulders are different weights, put the remainder back into the heap
+              boulderQueue.offer(first - second);
+          }
+          //if the boulders are the same weight, they're both destroyed and nothing is added back
+      }
+
+      //return the weight of the last remaining boulder
+      //return 0 if all boulders were destroyed
+      return boulderQueue.isEmpty() ? 0 : boulderQueue.peek();
   }
 
 

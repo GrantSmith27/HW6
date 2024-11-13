@@ -172,7 +172,14 @@ class PriorityQueue<E, P> {
 
     public boolean contains(E e) {
 
-        // ADD YOUR CODE HERE
+        //iterate through the tree
+       for (Node node : tree){
+           //if the nodes's value is e, return true
+           if (node.value().equals(e)){
+               return true;
+           }
+       }
+       //otherwise return false
         return false;
     }
 
