@@ -15,6 +15,8 @@ import java.util.PriorityQueue;
 public class ProblemSolutions {
 
     /**
+     * Grant Smith / Comp 272
+     *
      * Priority Queue (PQ) Game
      *
      * PQ1 Problem Statement:
