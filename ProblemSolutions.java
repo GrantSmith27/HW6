@@ -159,10 +159,26 @@ public class ProblemSolutions {
      */
 
     public static ArrayList<String> pair(int[] input, int k) {
+        //create a HashSet for integers we've encountered
+        HashSet<Integer> seen = new HashSet<>();
+        //create another for storing pairs
+        HashSet<String> pairs = new HashSet<>();
+        //loop through input array
+        for (int num : input) {
+            //calculate each integer's complement
+            int complement = k - num;
+            //if the complement was in the seen array, add to the pairs HashSet
+            if (seen.contains(complement)) {
+                int smaller = Math.min(num, complement);
+                int larger = Math.max(num, complement);
+                pairs.add("(" + smaller + ", " + larger + ")");
+            }
+            seen.add(num);
+        }
+        //convert to HashSet to an ArrayList and return the sorted pairs
+        ArrayList<String> result = new ArrayList<>(pairs);
+        Collections.sort(result);
 
-        //
-        //  YOUR CODE GOES HERE
-        //
-        return new ArrayList<>();  // Make sure returned lists is sorted as indicated above
+        return result;
     }
 }
