@@ -1,7 +1,7 @@
 
 /******************************************************************
  *
- *   YOUR NAME / SECTION NUMBER
+ *   Grant Smith / Comp 272
  *
  *   Note, additional comments provided throughout this source code
  *   is for educational purposes
